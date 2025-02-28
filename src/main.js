@@ -46,22 +46,22 @@ async function sendTelegramMessage(token, chatId, message) {
         // 显示浏览器窗口&使用自定义窗口大小
         const browser = await puppeteer.launch({ 
             headless: false, 
-            // args: [
-            //     '--no-sandbox',
-            //     '--disable-setuid-sandbox',
-            //     '--disable-dev-shm-usage',
-            //     '--disable-infobars',
-            //     '--disable-blink-features=AutomationControlled'
-            // ],
-            // defaultViewport: null,
-            // ignoreHTTPSErrors: true
+             args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                 '--disable-infobars',
+                '--disable-blink-features=AutomationControlled'
+             ],
+             defaultViewport: null,
+             ignoreHTTPSErrors: true
         });
         const page = await browser.newPage();
-        // await page.setViewport({ width: 1366, height: 768 });
-        // await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36');
-        // await page.evaluateOnNewDocument(() => {
-        //     delete Object.getPrototypeOf(navigator).webdriver;
-        // });
+         await page.setViewport({ width: 1366, height: 768 });
+         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36');
+         await page.evaluateOnNewDocument(() => {
+             delete Object.getPrototypeOf(navigator).webdriver;
+         });
 
         let url = `https://${panel}/login/?next=/`;
 
