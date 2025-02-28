@@ -57,11 +57,11 @@ async function sendTelegramMessage(token, chatId, message) {
              ignoreHTTPSErrors: true
         });
         const page = await browser.newPage();
-        // await page.setViewport({ width: 1366, height: 768 });
-        // await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36');
-        // await page.evaluateOnNewDocument(() => {
-        //     delete Object.getPrototypeOf(navigator).webdriver;
-        // });
+         await page.setViewport({ width: 1366, height: 768 });
+         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36');
+         await page.evaluateOnNewDocument(() => {
+             delete Object.getPrototypeOf(navigator).webdriver;
+         });
 
         let url = `https://${panel}/login/?next=/`;
 
